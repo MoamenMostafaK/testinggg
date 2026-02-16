@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: main-step
-        run: touch test.py
+        run: ./bashscript.sh
