@@ -13,4 +13,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: main-step
-        run: ./bashscript.sh
+        run: 
+         |
+         chmod +x bashscipt.sh
+         ./bashscript.sh
