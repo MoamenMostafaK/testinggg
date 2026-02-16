@@ -25,6 +25,7 @@ jobs:
 
   job2:
     runs-on: ubuntu-latest
+    environment: ubuntu-latest
     needs: mo2men  
     steps:
       - name: Checkout repository
