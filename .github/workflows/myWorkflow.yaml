@@ -49,7 +49,7 @@ jobs:
           push: true
           tags: ${{ vars.DOCKER_USERNAME }}/app:latest 
 
-job3:
+  job3:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
