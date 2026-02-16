@@ -15,5 +15,5 @@ jobs:
       - name: main-step
         run: 
          |
-         chmod +x bashscipt.sh
+         chmod +x bashscript.sh
          ./bashscript.sh
