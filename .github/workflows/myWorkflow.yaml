@@ -9,14 +9,13 @@ jobs:
   mo2men:
     runs-on: ubuntu-latest
     steps:
-      - name: checking out whats up
-        uses: actions/checkout@v6
+      - name: Checkout repository
+        uses: actions/checkout@v4 # Use stable v4 unless v6 is specifically required/released
 
-      - name: main-step
-        run: 
-         |
-         chmod +x bashscript.sh
-         ./bashscript.sh
+      - name: Execute script
+        run: |
+          chmod +x bashscript.sh
+          ./bashscript.sh
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -26,17 +25,26 @@ jobs:
 
   job2:
     runs-on: ubuntu-latest
-    name: ubuntu-latest
+    needs: mo2men  # Ensures sequential execution
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dragon-file
+          path: . # Places dragon.txt in the current context for Docker
+
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with: 
           username: ${{ vars.DOCKER_USERNAME }}        
           password: ${{ secrets.DOCKER_PASSWORD }}    
 
-      - name: build and push
+      - name: Build and push
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
-          tags: user/app:latest
+          tags: ${{ vars.DOCKER_USERNAME }}/app:latest # Use variable for portability
