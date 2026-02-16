@@ -9,5 +9,8 @@ jobs:
   mo2men:
     runs-on: ubuntu-latest
     steps:
+      - name: checking out whats up
+        uses: actions/checkout@v6
+
       - name: main-step
         run: ./bashscript.sh
