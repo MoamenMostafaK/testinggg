@@ -1,0 +1,12 @@
+name: myWorkfloww
+on:
+   pull_request:
+     branches:
+       - main
+jobs:
+  mo2men:
+  runs-on: ubuntu-latest
+  steps:
+    -name: main-step
+    -run:  touch test.py
+  
