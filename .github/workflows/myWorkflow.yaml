@@ -11,14 +11,15 @@ jobs:
     steps:
       - name: checking out whats up
         uses: actions/checkout@v6
-
-      - name: adding upload artificatttooo
-        uses: actions/upload-artifact@v4  
-        with:
-          path: /dragon.txt
-
+        
       - name: main-step
         run: 
          |
          chmod +x bashscript.sh
          ./bashscript.sh
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dragon-file
+          path: dragon.txt
