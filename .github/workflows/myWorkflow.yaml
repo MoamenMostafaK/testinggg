@@ -48,3 +48,27 @@ jobs:
           context: .
           push: true
           tags: ${{ vars.DOCKER_USERNAME }}/app:latest 
+
+  job3:
+    run-matrix:
+      runs-on: ${{ matrix.os }}   
+      strategy:
+        matrix:
+          os: [ubuntu-latest, macos-latest,ubuntu-22.04]
+          node: [16,17]
+      steps:
+        -name: print env info
+        run: |
+          echo "We are running on os ${{ matrix.os }}"
+          echo "We are using Node version: ${{ matrix.node }}"
+
+        -name: setup node          
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+        -name: run linux commands
+        run: |
+          uname -a
+          node -v
+          echo "Hello from matrix Job"
