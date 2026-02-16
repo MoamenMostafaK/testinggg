@@ -35,7 +35,7 @@ jobs:
           password: ${{ vars.DOCKER_PASSWORD }}    
 
       - name: build and push
-        uses: docker/build-push-activity@v6
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true
