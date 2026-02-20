@@ -22,14 +22,12 @@ jobs:
       - name: Setup dbt Profile
         run: |
           mkdir -p ~/.dbt
-          cat <<EOF > ~/.dbt/profiles.yml
-          testing_profile:
+          echo "testing_profile:
             target: dev
             outputs:
               dev:
                 type: duckdb
-                path: ':memory:'
-          EOF     
+                path: ':memory:'" > ~/.dbt/profiles.yml
 
       - name: run dbt 
         run: | 
