@@ -17,6 +17,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install pandas numpy pytest
+          pip install dbt-snowflake
 
       - name: run dbt 
         run: | 
