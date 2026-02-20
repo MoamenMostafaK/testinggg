@@ -1,4 +1,4 @@
-name: Python ETL CI
+name: Python ETL
 
 on: [push, pull_request]
 
