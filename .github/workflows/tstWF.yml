@@ -19,6 +19,10 @@ jobs:
           pip install pandas numpy pytest
           pip install dbt-duckdb
 
+      - name: Run ETL
+        run: |
+          python etl_process.py    
+
       - name: Setup dbt Profile
         run: |
           mkdir -p ~/.dbt

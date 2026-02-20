@@ -11,7 +11,6 @@ def generate_raw_data(n=100):
     })
 
 def transform_data(df):
-    """Minimal ETL: Filter low amounts and normalize region names."""
     # 1. Filter: Only keep orders > $50
     df = df[df['amount'] > 50].copy()
     # 2. Transform: Uppercase region names
