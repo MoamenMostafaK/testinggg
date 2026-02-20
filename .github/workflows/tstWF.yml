@@ -18,5 +18,10 @@ jobs:
         run: |
           pip install pandas numpy pytest
 
+      - name: run dbt 
+        run: | 
+         dbt run 
+         dbt test 
+      
       - name: Execute Tests
         run: pytest test_script.py -v
